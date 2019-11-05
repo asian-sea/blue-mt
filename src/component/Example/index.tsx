@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react'
-import styled from 'styled-components'
+import styled from '../../theme'
 
 export interface ExampleProps {
     text: string
@@ -25,20 +25,22 @@ const Example = (props: ExampleProps) => {
 }
 
 const Button = styled.button`
-    background: pink;
-    color: white;
+    background: ${props => props.theme.colors.primary};
+    color: ${props => props.theme.colors.onPrimary};
     border-radius: 6px;
     border: none;
 `
 const CountUp = styled.button`
     width: 30px;
-    border-color: pink;
+    background: ${props => props.theme.colors.secondary};
+    border-color: ${props => props.theme.colors.secondary};
+    color: ${props => props.theme.colors.onSecondary};
     border-radius: 6px;
     margin-right: 5px;
 `
 const CountDown = styled.button`
     width: 30px;
-    border-color: lightblue;
+    border-color: ${props => props.theme.colors.secondary};
     border-radius: 6px;
 `
 export default Example;

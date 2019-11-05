@@ -1,21 +1,25 @@
-//ConsolelogをActionsタブに表示する処理と、TypeScriptで作成したストーリを読み込む処理
+// import { withA11y } from '@storybook/addon-a11y'
+import { withKnobs } from '@storybook/addon-knobs'
+import { addDecorator, addParameters, configure } from '@storybook/react'
+import * as React from 'react'
+import { defaultTheme, ThemeProvider } from '../src/theme'
 
-import { configure } from '@storybook/react';
-import { setConsoleOptions } from '@storybook/addon-console';
+const req = require.context('../src', true, /(.*\.)?stories\.tsx$/)
 
-setConsoleOptions({
-    panelExclude: []
-  });
-  
-  function loadStories() {
-    let req = require.context("../src/stories", true, /.(tsx|js)$/);
-    req.keys().forEach(filename => req(filename));
-  
-    req = require.context("../src", true, /.stories.(tsx|js)$/);
-    req.keys().forEach(filename => req(filename));
-  }
-  
-  configure(loadStories, module);
+const loadStories = () => {
+  req.keys().forEach(req)
+}
 
-// automatically import all files ending in *.stories.js
-// configure(require.context('../src/stories', true, /\.stories\.js$/), module);
+addDecorator(withKnobs)
+// 謎のエラーでバグるのでオフにする
+// addDecorator(withA11y)
+addParameters({
+  backgrounds: [{ name: 'White', value: '#FFF', default: true }, { name: 'Dark', value: '#1a2d4c' }]
+})
+addDecorator(storyfn => (
+  <ThemeProvider theme={defaultTheme}>
+    <>{storyfn()}</>
+  </ThemeProvider>
+))
+
+configure(loadStories, module)

@@ -1,5 +1,6 @@
 //TypeScriptのソースをアドインに渡す処理
 const path = require("path");
+
 module.exports = ({ config }) => {
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
