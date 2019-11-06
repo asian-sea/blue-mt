@@ -11,7 +11,7 @@ storiesOf('Components|Button', module)
         <div style={{ margin: 30 }}>
         <TextButton.default
             onClick={action('♡')}
-            text={text('Text', 'Click me!!!')}
+            text={text('Text', 'Like it ♡')}
         />
         </div>
     ))

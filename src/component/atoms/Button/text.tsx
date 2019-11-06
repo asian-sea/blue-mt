@@ -19,12 +19,18 @@ const TextButton = React.memo<Props>(
 )
 
 const Button = styled.button`
-    background: ${props => props.theme.colors.primaryColors.primary};
+    display: inline-block;
     color: ${props => props.theme.colors.primaryColors.onPrimary};
+    background: ${props => props.theme.colors.primaryColors.primary};
+    border-color: ${props => props.theme.colors.primaryColors.primary};
+    border-bottom: solid 4px ${props => props.theme.colors.primaryColors.primaryVariant};
     max-width: 100px;
     border-radius: 6px;
-    border: none;
     cursor: pointer;
+    &:active{
+        transform: translateY(4px);
+        border-bottom: none;
+    }
     &:focus {
         outline: 0;
     }
