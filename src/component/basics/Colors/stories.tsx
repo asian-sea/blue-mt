@@ -7,23 +7,27 @@ type SquareProps = {
     name: string
 }
 const Square: React.FC<SquareProps> = ({ name, color }) => (
-    <div className="ml-4">
-        <div className="h-16 w-16" style={{ backgroundColor: color }} />
-        <p className="text-center text-xs mt-2">{name}</p>
+    <div style={{ marginLeft: 50 }}>
+        <div style={{ backgroundColor: color, height: 100, width: 100 }} />
+        <p >{name}</p>
     </div>
 )
 
 const renderColorsEachKeys = (obj: { [key: string]: string }) => {
     return Object.keys(obj)
-        .sort((a, b) => (a > b ? -1 : 1))
+        // .sort((a, b) => (a > b ? -1 : 1))
         .map((key, index) => <Square key={index} color={obj[key]} name={key} />)
 }
 
 storiesOf('Basics|Colors', module).add('all', () => (
-    <div className="container p-4">
-        <h1 className="text-xl">Primary</h1>
-        <div className="flex mt-4">
-            {renderColorsEachKeys(defaultTheme.colors)}
+    <div style={{ padding: 4}}>
+        <h1>Primary</h1>
+        <div style={{ display: 'flex', fontSize: 8, textAlign: 'center' }}>
+            {renderColorsEachKeys(defaultTheme.colors.primaryColors)}
+        </div>
+        <h1>Division</h1>
+        <div style={{ display: 'flex', fontSize: 8, textAlign: 'center' }}>
+            {renderColorsEachKeys(defaultTheme.colors.divisionColors)}å
         </div>
     </div>
 ))

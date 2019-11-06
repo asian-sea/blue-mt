@@ -25,22 +25,23 @@ const Example = (props: ExampleProps) => {
 }
 
 const Button = styled.button`
-    background: ${props => props.theme.colors.primary};
-    color: ${props => props.theme.colors.onPrimary};
+    background: ${props => props.theme.colors.primaryColors.primary};
+    color: ${props => props.theme.colors.primaryColors.onPrimary};
     border-radius: 6px;
     border: none;
 `
 const CountUp = styled.button`
     width: 30px;
-    background: ${props => props.theme.colors.secondary};
-    border-color: ${props => props.theme.colors.secondary};
-    color: ${props => props.theme.colors.onSecondary};
+    background: ${props => props.theme.colors.primaryColors.secondary};
+    border-color: ${props => props.theme.colors.primaryColors.secondary};
+    color: ${props => props.theme.colors.primaryColors.onSecondary};
     border-radius: 6px;
     margin-right: 5px;
 `
 const CountDown = styled.button`
     width: 30px;
-    border-color: ${props => props.theme.colors.secondary};
+    border-color: ${props => props.theme.colors.primaryColors.secondary};
     border-radius: 6px;
 `
+
 export default Example;
