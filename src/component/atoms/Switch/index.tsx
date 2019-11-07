@@ -50,7 +50,7 @@ const Text = styled.span``
 const SwitchOuter = styled.div`
     position: relative;
     margin: 0 5px 0 5px;
-    width: 40px;
+    width: 35px;
     height: 20px;
     border-radius: 10px;
     cursor: pointer;
@@ -69,9 +69,10 @@ const SwitchItem = styled.div`
     height: 14px;
     border-radius: 7px;
     box-shadow: 1px 1px 3px;
-    transition: 0.2s;
+    opacity: 0.7;
+    transition: 0.4s;
     &.active-item {
-        left: 20px;
+        left: 14px;
     }
 `
 
