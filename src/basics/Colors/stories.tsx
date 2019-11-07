@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
-import { defaultTheme } from '../../../theme'
+import { defaultTheme } from '../../theme'
 
 type SquareProps = {
     color: string

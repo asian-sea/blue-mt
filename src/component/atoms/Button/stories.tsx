@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import * as TextButton from '../Button/text'
+import * as TextButton from './text'
 
 import { action } from '@storybook/addon-actions'
 import { text } from '@storybook/addon-knobs'
